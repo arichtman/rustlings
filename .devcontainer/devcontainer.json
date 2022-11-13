@@ -28,4 +28,5 @@
     "source=${localEnv:HOME}/.local/share/cargo/registry,target=/usr/local/cargo/registry,type=bind,consistency=cached"
   ],
   "name": "Rustlings",
+  "containerUser": "vscode"
 }
