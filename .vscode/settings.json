@@ -1,9 +1,10 @@
 {
     "nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix",
-    "terminal.integrated.defaultProfile.linux": "nix-shell",
+    "terminal.integrated.defaultProfile.linux": "nix-dev",
     "terminal.integrated.profiles.linux": {
-        "nix-shell": {
-            "path": "nix-shell"
+        "nix-dev": {
+            "path": "nix",
+            "args": [ "develop" ]
         }
     }
 }

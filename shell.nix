@@ -11,8 +11,9 @@ pkgs.mkShell {
     python311
   ];
   shellHook = ''
+  rustup override set nightly
   export PATH="$PATH:$HOME/.cargo/bin"
-  cargo install --path .
+  #cargo install --path .
   '';
   RUST_BACKTRACE = 1;
 }
