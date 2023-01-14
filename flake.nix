@@ -44,6 +44,8 @@
           cargo-edit
           cargo-watch
           rust-analyzer
+          clippy
+          vscode-extensions.rust-lang.rust-analyzer
         ];
 
         shellHook = ''

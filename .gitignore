@@ -9,3 +9,4 @@ rust-project.json
 .idea
 *.iml
 *.o
+.direnv
