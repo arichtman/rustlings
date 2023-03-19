@@ -33,10 +33,7 @@
       ];
 
       pkgs = import nixpkgs { inherit system overlays; };
-    in
-    {
-      devShells.default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [
+      basePackageList = with pkgs; [
           rustToolchain
           openssl
           pkg-config
@@ -44,9 +41,14 @@
           cargo-edit
           cargo-watch
           rust-analyzer
-          darwin.apple_sdk.frameworks.CoreServices
         ];
-
+      finalPackageList = ( x: if x == "x86_64-darwin" then 
+        basePackageList ++ [ pkgs.darwin.apple_sdk.frameworks.CoreServices ]
+      else basePackageList );
+    in
+    {
+      devShells.default = pkgs.mkShell {
+        nativeBuildInputs = finalPackageList system;
         shellHook = ''
           ${pkgs.rustToolchain}/bin/cargo --version
         '';
