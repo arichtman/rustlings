@@ -42,7 +42,7 @@
           cargo-watch
           rust-analyzer
         ];
-      finalPackageList = ( x: if x == "x86_64-darwin" then 
+      finalPackageList = ( x: if pkgs.stdenv.isDarwin then 
         basePackageList ++ [ pkgs.darwin.apple_sdk.frameworks.CoreServices ]
       else basePackageList );
     in
