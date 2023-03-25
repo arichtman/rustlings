@@ -41,6 +41,7 @@
           cargo-edit
           cargo-watch
           rust-analyzer
+          helix
         ];
       finalPackageList = ( x: if pkgs.stdenv.isDarwin then 
         basePackageList ++ [ pkgs.darwin.apple_sdk.frameworks.CoreServices ]
