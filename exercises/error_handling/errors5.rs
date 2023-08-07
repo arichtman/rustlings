@@ -1,5 +1,5 @@
 // errors5.rs
-
+//
 // This program uses an altered version of the code from errors4.
 
 // This exercise uses some concepts that we won't get to until later in the course, like `Box` and the
