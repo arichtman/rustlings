@@ -52,12 +52,10 @@ impl ReportCard<AlphaReport> {
         )
     }
 
-    // The static lifetime here smells a bit
-    // Maybe the solution was to do an assignment and then to_owned it or somehow pass ownership out of this method
-    fn get_alpha_grade(&self) -> &'static str {
+    fn get_alpha_grade(&self) -> String {
         // #![feature(exclusive_range_pattern)]
         // #![cfg_attr(feature = "my_feature", feature(exclusive_range_pattern))]
-        match self.grade {
+        let mut out = match self.grade {
             // Little bit verbose, we could have maybe made this less repetitive
             // Also the spec seems off, it says the range is 1 - 5.5 but there's no way to fit minuses in there, yet there's an F-?
             // Also oof but I gotta put decimals on everything else be even more verbose let they be considered integers
@@ -73,7 +71,8 @@ impl ReportCard<AlphaReport> {
             4.5..=5.0 => "A",
             5.0..=5.5 => "A+",
             _ => panic!(),
-        }
+        };
+        out.to_owned()
     }
 }
 
