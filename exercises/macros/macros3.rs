@@ -13,7 +13,14 @@ mod macros {
             println!("Check out my macro!");
         };
     }
+    // pub my_macro;
 }
+
+#[macro_use]
+use self::macros;
+// use self::macros::*;
+// extern macros;
+// use macros::
 
 fn main() {
     my_macro!();
